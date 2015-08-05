@@ -1,0 +1,3099 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EBC16384-9DB6-490D-8DE9-15A5FCB45101}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LibPhoneNumberPortable</RootNamespace>
+    <AssemblyName>LibPhoneNumberPortable</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile49</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_30" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AsYouTypeFormatter.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\AlternateFormatsCountryCodeSet.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\AsYouTypeFormatter.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\CountryCodeToRegionCodeMap.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\geocoding\AreaCodeMap.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\geocoding\AreaCodeMapStorageStrategy.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\geocoding\DefaultMapStorage.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\geocoding\FlyweightMapStorage.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\geocoding\MappingFileProvider.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\geocoding\PhoneNumberOfflineGeocoder.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\MetadataManager.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\NumberParseException.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\Phonemetadata.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\Phonenumber.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\PhoneNumberMatch.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\PhoneNumberMatcher.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\PhoneNumberUtil.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\RegexCache.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\ShortNumberInfo.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\ShortNumbersRegionCodeSet.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\ShortNumberUtil.cs" />
+    <Compile Include="CountryCodeSource.cs" />
+    <Compile Include="java\Entry.cs" />
+    <Compile Include="java\Extensions.cs" />
+    <Compile Include="java\io\Bits.cs" />
+    <Compile Include="java\io\ByteArrayInputStream.cs" />
+    <Compile Include="java\io\ByteArrayOutputStream.cs" />
+    <Compile Include="java\io\ByteBuffer.cs" />
+    <Compile Include="java\io\DataInput.cs" />
+    <Compile Include="java\io\DataInputStream.cs" />
+    <Compile Include="java\io\DataOutput.cs" />
+    <Compile Include="java\io\DataOutputStream.cs" />
+    <Compile Include="java\io\Externalizable.cs" />
+    <Compile Include="java\io\InputStream.cs" />
+    <Compile Include="java\io\IOException.cs" />
+    <Compile Include="java\io\ObjectInput.cs" />
+    <Compile Include="java\io\ObjectInputStream.cs" />
+    <Compile Include="java\io\ObjectOutput.cs" />
+    <Compile Include="java\io\ObjectOutputStream.cs" />
+    <Compile Include="java\io\OutputStream.cs" />
+    <Compile Include="java\lang\AbstractStringBuilder.cs" />
+    <Compile Include="java\lang\Appendable.cs" />
+    <Compile Include="java\lang\boolean.cs" />
+    <Compile Include="java\lang\Character.cs" />
+    <Compile Include="java\lang\CharacterData.cs" />
+    <Compile Include="java\lang\CharacterData00.cs" />
+    <Compile Include="java\lang\CharacterData01.cs" />
+    <Compile Include="java\lang\CharacterDataLatin1.cs" />
+    <Compile Include="java\lang\CharSequence.cs" />
+    <Compile Include="java\lang\IllegalArgumentException.cs" />
+    <Compile Include="java\lang\IllegalStateException.cs" />
+    <Compile Include="java\lang\Integer.cs" />
+    <Compile Include="java\lang\Iterable.cs" />
+    <Compile Include="java\lang\Long.cs" />
+    <Compile Include="java\lang\Math.cs" />
+    <Compile Include="java\lang\NullPointerException.cs" />
+    <Compile Include="java\lang\NumberFormatException.cs" />
+    <Compile Include="java\lang\RuntimeException.cs" />
+    <Compile Include="java\lang\Short.cs" />
+    <Compile Include="java\lang\String.cs" />
+    <Compile Include="java\lang\StringBuffer.cs" />
+    <Compile Include="java\lang\StringBuilder.cs" />
+    <Compile Include="java\lang\UnsupportedOperationException.cs" />
+    <Compile Include="java\text\Normalizer.cs" />
+    <Compile Include="java\util\ArrayList.cs" />
+    <Compile Include="java\util\Arrays.cs" />
+    <Compile Include="java\util\Collections.cs" />
+    <Compile Include="java\util\HashMap.cs" />
+    <Compile Include="java\util\HashSet.cs" />
+    <Compile Include="java\util\Iterator.cs" />
+    <Compile Include="java\util\LinkedHashMap.cs" />
+    <Compile Include="java\util\List.cs" />
+    <Compile Include="java\util\Locale.cs" />
+    <Compile Include="java\util\logging\Level.cs" />
+    <Compile Include="java\util\logging\Logger.cs" />
+    <Compile Include="java\util\Map.cs" />
+    <Compile Include="java\util\NoSuchElementException.cs" />
+    <Compile Include="java\util\regex\ASCII.cs" />
+    <Compile Include="java\util\regex\IndexOutOfBoundsException.cs" />
+    <Compile Include="java\util\regex\Matcher.cs" />
+    <Compile Include="java\util\regex\MatchResult.cs" />
+    <Compile Include="java\util\regex\Pattern.cs" />
+    <Compile Include="java\util\regex\PatternSyntaxException.cs" />
+    <Compile Include="java\util\regex\UnicodeProp.cs" />
+    <Compile Include="java\util\Set.cs" />
+    <Compile Include="java\util\SortedMap.cs" />
+    <Compile Include="java\util\SortedSet.cs" />
+    <Compile Include="java\util\TreeMap.cs" />
+    <Compile Include="java\util\TreeSet.cs" />
+    <Compile Include="Locale.cs" />
+    <Compile Include="NumberFormat.cs" />
+    <Compile Include="NumberParseException.cs" />
+    <Compile Include="PhoneNumber.cs" />
+    <Compile Include="PhoneNumberMatch.cs" />
+    <Compile Include="PhoneNumberUtil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShortNumberInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_31" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_34" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_351" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_352" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_359" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_372" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_373" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_375" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_380" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_385" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_43" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_44" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_49" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_55" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_58" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_595" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_61" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_62" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_63" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_7" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_81" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_855" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_90" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_971" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberAlternateFormatsProto_972" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_800" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_808" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_870" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_878" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_881" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_882" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_883" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_888" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_979" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_AC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_AD" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_AE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_AF" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_AG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_AI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_AL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_AM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_AO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_AR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_AS" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_AT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_AU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_AW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_AX" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_AZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BB" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BD" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BF" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BJ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BQ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BS" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_BZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CD" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CF" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CK" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CV" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CX" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_CZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_DE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_DJ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_DK" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_DM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_DO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_DZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_EC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_EE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_EG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_EH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_ER" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_ES" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_ET" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_FI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_FJ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_FK" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_FM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_FO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_FR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GB" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GD" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GF" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GP" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GQ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_GY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_HK" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_HN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_HR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_HT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_HU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_ID" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_IE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_IL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_IM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_IN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_IO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_IQ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_IR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_IS" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_IT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_JE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_JM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_JO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_JP" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_KE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_KG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_KH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_KI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_KM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_KN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_KP" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_KR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_KW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_KY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_KZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_LA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_LB" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_LC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_LI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_LK" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_LR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_LS" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_LT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_LU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_LV" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_LY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MD" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_ME" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MF" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MK" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_ML" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MP" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MQ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MS" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MV" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MX" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_MZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_NA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_NC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_NE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_NF" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_NG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_NI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_NL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_NO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_NP" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_NR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_NU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_NZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_OM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_PA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_PE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_PF" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_PG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_PH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_PK" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_PL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_PM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_PR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_PS" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_PT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_PW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_PY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_QA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_RE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_RO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_RS" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_RU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_RW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SB" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SD" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SJ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SK" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SS" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_ST" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SV" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SX" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_SZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_TA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_TC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_TD" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_TG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_TH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_TJ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_TK" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_TL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_TM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_TN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_TO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_TR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_TT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_TV" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_TW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_TZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_UA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_UG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_US" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_UY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_UZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_VA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_VC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_VE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_VG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_VI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_VN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_VU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_WF" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_WS" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_YE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_YT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_ZA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_ZM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProto_ZW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_AC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_AD" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_AE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_AF" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_AG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_AI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_AL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_AM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_AO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_AR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_AS" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_AT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_AU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_AW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_AX" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_AZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BB" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BD" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BF" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BJ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BQ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BS" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_BZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_CA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_CC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_CH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_CI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_CK" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_CL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_CM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_CN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_CO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_CR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_CU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_CV" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_CW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_CX" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_CY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_CZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_DE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_DJ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_DK" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_DM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_DO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_DZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_EC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_EE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_EG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_EH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_ES" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_ET" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_FI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_FJ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_FK" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_FM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_FO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_FR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_GA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_GB" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_GD" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_GE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_GF" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_GG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_GH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_GI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_GL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_GM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_GP" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_GR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_GT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_GU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_GW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_GY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_HK" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_HN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_HR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_HT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_HU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_ID" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_IE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_IL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_IM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_IN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_IR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_IS" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_IT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_JE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_JM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_JO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_JP" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_KE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_KG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_KH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_KI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_KM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_KN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_KR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_KW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_KY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_KZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_LA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_LB" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_LC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_LI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_LK" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_LR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_LS" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_LT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_LU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_LV" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_LY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MD" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_ME" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MF" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MK" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_ML" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MP" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MQ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MS" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MV" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MX" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_MZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_NA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_NC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_NF" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_NG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_NI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_NL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_NO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_NP" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_NR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_NU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_NZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_OM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_PA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_PE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_PF" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_PG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_PH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_PK" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_PL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_PM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_PR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_PT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_PW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_PY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_QA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_RE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_RO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_RS" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_RU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_RW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_SA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_SB" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_SC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_SD" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_SE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_SG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_SH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_SI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_SJ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_SK" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_SL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_SM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_SR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_ST" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_SV" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_SX" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_SY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_SZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_TC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_TD" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_TG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_TH" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_TJ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_TL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_TM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_TN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_TO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_TR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_TT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_TV" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_TW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_TZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_UA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_UG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_US" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_UY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_UZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_VA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_VC" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_VE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_VG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_VI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_VN" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_VU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_WF" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_WS" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_YE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_YT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_ZA" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_ZM" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\ShortNumberMetadataProto_ZW" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1201_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1202_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1203_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1204_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1205_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1206_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1207_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1208_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1209_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1210_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1212_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1213_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1214_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1215_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1216_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1217_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1218_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1219_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1224_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1225_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1226_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1228_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1229_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1231_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1234_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1236_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1239_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1240_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1248_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1250_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1251_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1252_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1253_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1254_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1256_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1260_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1262_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1267_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1269_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1270_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1276_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1281_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1289_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1301_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1302_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1303_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1304_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1305_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1306_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1307_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1308_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1309_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1310_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1312_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1313_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1314_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1315_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1316_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1317_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1318_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1319_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1320_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1321_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1323_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1325_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1330_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1331_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1334_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1336_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1337_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1339_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1345_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1347_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1351_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1352_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1360_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1361_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1365_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1385_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1386_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1401_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1402_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1403_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1404_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1405_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1406_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1407_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1408_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1409_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1410_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1412_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1413_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1414_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1415_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1416_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1417_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1418_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1419_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1423_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1424_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1425_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1430_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1431_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1432_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1434_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1435_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1437_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1438_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1440_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1443_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1450_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1469_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1478_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1479_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1480_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1484_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1501_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1502_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1503_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1504_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1505_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1506_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1507_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1508_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1509_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1510_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1512_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1513_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1514_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1515_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1516_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1517_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1518_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1519_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1520_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1530_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1540_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1541_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1551_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1559_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1561_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1562_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1563_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1567_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1570_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1571_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1573_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1574_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1575_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1580_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1585_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1586_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1587_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1601_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1602_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1603_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1604_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1605_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1606_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1607_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1608_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1609_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1610_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1612_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1613_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1614_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1615_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1616_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1617_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1618_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1619_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1620_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1623_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1626_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1630_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1631_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1636_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1639_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1641_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1646_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1647_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1650_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1651_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1657_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1660_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1661_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1662_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1667_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1669_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1678_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1682_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1701_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1702_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1703_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1704_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1705_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1706_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1707_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1708_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1709_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1712_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1713_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1714_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1715_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1716_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1717_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1718_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1719_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1720_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1724_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1726_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1727_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1730_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1731_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1732_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1734_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1740_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1754_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1757_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1760_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1763_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1765_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1769_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1770_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1772_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1773_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1774_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1775_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1778_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1779_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1780_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1781_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1785_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1786_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1801_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1802_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1803_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1804_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1805_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1806_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1807_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1808_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1809_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1810_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1812_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1813_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1814_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1815_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1816_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1817_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1818_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1819_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1828_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1830_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1831_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1832_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1838_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1843_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1845_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1847_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1848_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1850_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1851_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1856_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1857_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1858_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1859_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1860_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1862_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1863_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1864_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1865_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1867_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1870_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1872_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1873_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1878_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1888_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1901_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1902_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1903_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1904_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1905_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1906_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1907_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1908_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1909_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1910_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1912_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1913_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1914_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1915_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1916_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1917_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1918_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1919_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1920_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1925_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1928_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1931_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1936_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1937_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1940_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1941_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1947_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1949_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1951_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1952_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1954_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1956_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1970_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1971_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1972_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1973_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1978_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1979_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1980_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1984_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1985_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\1989_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\20_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\212_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\212_fr" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\213_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\216_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\220_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\221_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\222_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\222_fr" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\224_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\225_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\225_fr" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\226_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\228_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\228_es" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\228_fr" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\229_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\229_fr" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\230_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\230_es" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\230_fr" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\232_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\233_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\234_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\238_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\238_pt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\239_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\239_pt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\241_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\242_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\242_fr" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\243_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\243_fr" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\244_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\244_pt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\245_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\245_pt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\247_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\249_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\251_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\252_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\254_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\256_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\258_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\258_pt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\260_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\261_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\263_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\264_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\266_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\267_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\268_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\269_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\269_fr" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\27_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\290_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\290_fr" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\299_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\30_el" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\30_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\31_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\31_nl" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\32_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\32_fr" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\32_nl" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\33_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\33_fr" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\34_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\34_es" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\351_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\351_pt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\352_de" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\352_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\352_fr" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\353_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\354_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\355_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\358_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\358_fi" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\358_se" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\359_bg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\359_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\36_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\36_hu" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\370_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\371_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\372_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\373_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\373_ro" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\373_ru" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\374_am" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\374_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\374_ru" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\375_be" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\375_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\375_ru" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\381_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\381_sr" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\39_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\39_it" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\40_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\40_ro" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\41_de" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\41_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\41_fr" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\41_it" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\420_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\421_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\43_de" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\43_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\44_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\46_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\46_sv" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\47_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\48_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\48_pl" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\49_de" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\49_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\51_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\53_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\54_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\54_es" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\55_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\55_pt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\56_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\56_es" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\57_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\58_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\58_es" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\62_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\62_id" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\66_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\66_th" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\7_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\7_ru" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\81_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\81_ja" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\82_ar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\82_cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\82_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\82_fr" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\82_ko" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\82_zh" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\82_zh_Hant" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\84_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\84_vi" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\86_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\86_zh" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\886_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\886_zh" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\886_zh_Hant" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\90_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\90_tr" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\91_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\94_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\98_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\98_fa" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\data\config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

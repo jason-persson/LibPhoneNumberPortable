@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1B2740DA-B9C4-4A3D-BC5B-EA4F792E26CA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Test</RootNamespace>
+    <AssemblyName>Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="com\google\i18n\phonenumbers\ShortNumberInfoTest.cs" />
+    <Compile Include="EnumSet.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\geocoding\AreaCodeMapTest.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\geocoding\FlyweightMapStorageTest.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\geocoding\MappingFileProviderTest.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\geocoding\PhoneNumberOfflineGeocoderTest.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\AsYouTypeFormatterTest.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\CountryCodeToRegionCodeMapForTesting.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\ExampleNumbersTest.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\MetadataManagerTest.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\PhoneNumberMatcherTest.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\PhoneNumberMatchTest.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\PhonenumberTest.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\PhoneNumberUtilTest.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\RegexCacheTest.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\RegionCode.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\ShortNumberUtilTest.cs" />
+    <Compile Include="com\google\i18n\phonenumbers\TestMetadataTestCase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCase.cs" />
+    <Compile Include="TestInitialize.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_800" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_979" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_AD" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_AE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_AO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_AR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_AU" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_BR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_BS" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_BY" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_DE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_GB" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_IT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_JP" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_KR" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_MX" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_NZ" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_PL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_RE" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_SG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_US" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_YT" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\testing_data\1201_de" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\testing_data\1201_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\testing_data\1212_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\testing_data\1617_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\testing_data\1650_de" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\testing_data\1650_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\testing_data\1989_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\testing_data\82_en" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\testing_data\82_ko" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\geocoding\testing_data\config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_FR" />
+    <EmbeddedResource Include="com\google\i18n\phonenumbers\data\PhoneNumberMetadataProtoForTesting_GG" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibPhoneNumberPortable\LibPhoneNumberPortable.csproj">
+      <Project>{ebc16384-9db6-490d-8de9-15a5fcb45101}</Project>
+      <Name>LibPhoneNumberPortable</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
