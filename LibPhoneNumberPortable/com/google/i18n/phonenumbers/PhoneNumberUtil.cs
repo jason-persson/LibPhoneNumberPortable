@@ -3237,5 +3237,13 @@ public class PhoneNumberUtil {
 
     return countryCode;
   }
+
+  public bool isValidRegionCode(string regionCode)
+  {
+      if (regionCode == UNKNOWN_REGION)
+          return false;
+
+      return getSupportedRegions().contains(regionCode);
+  }
   }
 }

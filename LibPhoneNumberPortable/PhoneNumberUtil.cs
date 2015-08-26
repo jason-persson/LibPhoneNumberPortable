@@ -526,5 +526,10 @@ namespace libphonenumber
         {
             return phoneNumberUtil.maybeExtractCountryCode(number);
         }
+
+        public bool IsValidRegionCode(string regionCode)
+        {
+            return phoneNumberUtil.isValidRegionCode(regionCode);
+        }
     }
 }
