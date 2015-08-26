@@ -516,5 +516,10 @@ namespace libphonenumber
         {
             return (MatchType)phoneNumberUtil.isNumberMatch(firstNumber, secondNumber);
         }
+
+        public string GetRegionCodeForNumber(string number)
+        {
+            return phoneNumberUtil.GetRegionCodeForNumber(number);
+        }
     }
 }

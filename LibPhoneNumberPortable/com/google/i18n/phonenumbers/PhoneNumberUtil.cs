@@ -3174,5 +3174,32 @@ public class PhoneNumberUtil {
     String nationalSignificantNumber = getNationalSignificantNumber(number);
     return !isNumberMatchingDesc(nationalSignificantNumber, metadata.getNoInternationalDialling());
   }
-}
+
+  public string GetRegionCodeForNumber(string number) {
+    StringBuilder nationalNumber = new StringBuilder();
+    PhoneNumber phoneNumber = new PhoneNumber();
+    int countryCode = maybeExtractCountryCode(number, null, nationalNumber, false, phoneNumber);
+    if (countryCode == 0) {
+      return UNKNOWN_REGION;
+    }
+
+    try {
+      phoneNumber.setNationalNumber(Integer.parseInt(nationalNumber.toString()));
+    }
+    catch {
+      return UNKNOWN_REGION;
+    }
+
+    List<String> regions = countryCallingCodeToRegionCodeMap.get(countryCode);
+    if (regions == null) {
+      String numberString = getNationalSignificantNumber(phoneNumber);
+      logger.log(Level.WARNING,
+                 "Missing/invalid country_code (" + countryCode + ") for number " + numberString);
+      return null;
+    }
+
+
+    return regions.size() == 1 ? regions.get(0) : getRegionCodeForNumberFromRegionList(phoneNumber, regions);
+  }
+  }
 }
