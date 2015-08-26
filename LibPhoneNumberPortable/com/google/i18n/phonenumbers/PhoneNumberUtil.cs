@@ -3175,15 +3175,17 @@ public class PhoneNumberUtil {
     return !isNumberMatchingDesc(nationalSignificantNumber, metadata.getNoInternationalDialling());
   }
 
-  public string GetRegionCodeForNumber(string number) {
+  public string getRegionCodeForNumber(string number) {
     StringBuilder nationalNumber = new StringBuilder();
     PhoneNumber phoneNumber = new PhoneNumber();
-    int countryCode = maybeExtractCountryCode(number, null, nationalNumber, false, phoneNumber);
-    if (countryCode == 0) {
-      return UNKNOWN_REGION;
-    }
 
+    int countryCode;
     try {
+      countryCode = maybeExtractCountryCode(number, null, nationalNumber, false, phoneNumber);
+      if (countryCode == 0) {
+        return UNKNOWN_REGION;
+      }
+
       phoneNumber.setNationalNumber(Integer.parseInt(nationalNumber.toString()));
     }
     catch {

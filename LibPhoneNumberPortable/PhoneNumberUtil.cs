@@ -519,7 +519,7 @@ namespace libphonenumber
 
         public string GetRegionCodeForNumber(string number)
         {
-            return phoneNumberUtil.GetRegionCodeForNumber(number);
+            return phoneNumberUtil.getRegionCodeForNumber(number);
         }
     }
 }
