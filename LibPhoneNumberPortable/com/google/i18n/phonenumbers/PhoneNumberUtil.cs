@@ -3203,5 +3203,21 @@ public class PhoneNumberUtil {
 
     return regions.size() == 1 ? regions.get(0) : getRegionCodeForNumberFromRegionList(phoneNumber, regions);
   }
+
+  public int maybeExtractCountryCode(String number)
+  {
+    StringBuilder nationalNumber = new StringBuilder();
+    PhoneNumber phoneNumber = new PhoneNumber();
+
+    int countryCode = 0;
+    try {
+      countryCode = maybeExtractCountryCode(number, null, nationalNumber, false, phoneNumber);
+    }
+    catch {
+      // Don't throw
+    }
+
+    return countryCode;
+  }
   }
 }

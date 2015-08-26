@@ -521,5 +521,10 @@ namespace libphonenumber
         {
             return phoneNumberUtil.getRegionCodeForNumber(number);
         }
+
+        public int GetDiallingCodeForNumber(string number)
+        {
+            return phoneNumberUtil.maybeExtractCountryCode(number);
+        }
     }
 }
