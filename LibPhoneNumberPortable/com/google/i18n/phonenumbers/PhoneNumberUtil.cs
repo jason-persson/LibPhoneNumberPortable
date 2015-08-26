@@ -2504,11 +2504,11 @@ public class PhoneNumberUtil {
       phoneNumber.setCountryCodeSource(countryCodeSource);
     }
     if (countryCodeSource != CountryCodeSource.FROM_DEFAULT_COUNTRY) {
-      if (fullNumber.length() <= MIN_LENGTH_FOR_NSN) {
-        throw new NumberParseException(NumberParseException.ErrorType.TOO_SHORT_AFTER_IDD,
-                                       "Phone number had an IDD, but after this was not "
-                                       + "long enough to be a viable phone number.");
-      }
+      //if (fullNumber.length() <= MIN_LENGTH_FOR_NSN) {
+      //  throw new NumberParseException(NumberParseException.ErrorType.TOO_SHORT_AFTER_IDD,
+      //                                 "Phone number had an IDD, but after this was not "
+      //                                 + "long enough to be a viable phone number.");
+      //}
       int potentialCountryCode = extractCountryCode(fullNumber, nationalNumber);
       if (potentialCountryCode != 0) {
         phoneNumber.setCountryCode(potentialCountryCode);
@@ -2874,6 +2874,24 @@ public class PhoneNumberUtil {
     StringBuilder normalizedNationalNumber = new StringBuilder();
     int countryCode = 0;
     try {
+
+      StringBuilder fullNumber = new StringBuilder(numberToParse);
+
+      // Set the default prefix to be something that will never match.
+      String possibleCountryIddPrefix = "NonMatch";
+      if (regionMetadata != null) {
+        possibleCountryIddPrefix = regionMetadata.getInternationalPrefix();
+      }
+
+      CountryCodeSource countryCodeSource =
+          maybeStripInternationalPrefixAndNormalize(fullNumber, possibleCountryIddPrefix);
+
+      if (countryCodeSource != CountryCodeSource.FROM_DEFAULT_COUNTRY && fullNumber.length() <= MIN_LENGTH_FOR_NSN) {
+        throw new NumberParseException(NumberParseException.ErrorType.TOO_SHORT_AFTER_IDD,
+                                       "Phone number had an IDD, but after this was not "
+                                       + "long enough to be a viable phone number.");
+      }
+
       // TODO: This method should really just take in the string buffer that has already
       // been created, and just remove the prefix, rather than taking in a string and then
       // outputting a string buffer.
