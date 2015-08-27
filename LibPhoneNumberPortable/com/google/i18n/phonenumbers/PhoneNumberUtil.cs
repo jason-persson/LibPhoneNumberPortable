@@ -3204,7 +3204,9 @@ public class PhoneNumberUtil {
         return UNKNOWN_REGION;
       }
 
-      phoneNumber.setNationalNumber(Integer.parseInt(nationalNumber.toString()));
+      if (nationalNumber.length() > 0) {
+        phoneNumber.setNationalNumber(Integer.parseInt(nationalNumber.toString()));
+      } 
     }
     catch {
       return UNKNOWN_REGION;
