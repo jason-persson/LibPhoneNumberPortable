@@ -2475,6 +2475,22 @@ using java.util;
     assertFalse(phoneUtil.isAlphaNumber("1800 123-1234 extension: 1234"));
     assertFalse(phoneUtil.isAlphaNumber("+800 1234-1234"));
   }
+
+    [TestMethod] public void testGetRegionCodeForNumber2() {
+
+      assertEquals("ZZ", phoneUtil.getRegionCodeForNumber((String)null));
+      assertEquals("ZZ", phoneUtil.getRegionCodeForNumber(""));
+      assertEquals("ZZ", phoneUtil.getRegionCodeForNumber("+"));
+      assertEquals("US", phoneUtil.getRegionCodeForNumber("+1"));
+      assertEquals("US", phoneUtil.getRegionCodeForNumber("+11"));
+      assertEquals("US", phoneUtil.getRegionCodeForNumber("+111"));
+      assertEquals("US", phoneUtil.getRegionCodeForNumber("+1111"));
+      assertEquals("US", phoneUtil.getRegionCodeForNumber("+12147483648"));
+
+      assertEquals("BS", phoneUtil.getRegionCodeForNumber("+1242"));
+
+      assertEquals("NZ", phoneUtil.getRegionCodeForNumber("+64"));
+    }
 }
 
 }

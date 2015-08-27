@@ -3193,7 +3193,13 @@ public class PhoneNumberUtil {
     return !isNumberMatchingDesc(nationalSignificantNumber, metadata.getNoInternationalDialling());
   }
 
-  public string getRegionCodeForNumber(string number) {
+  public String getRegionCodeForNumber(String number)
+  {
+    if (number == null) {
+      return UNKNOWN_REGION;      
+    }
+    number = number.substring(0, java.lang.Math.min(number.length(), MAX_LENGTH_FOR_NSN));
+
     StringBuilder nationalNumber = new StringBuilder();
     PhoneNumber phoneNumber = new PhoneNumber();
 
@@ -3204,8 +3210,9 @@ public class PhoneNumberUtil {
         return UNKNOWN_REGION;
       }
 
-      if (nationalNumber.length() > 0) {
-        phoneNumber.setNationalNumber(Integer.parseInt(nationalNumber.toString()));
+      if (nationalNumber.length() > 0)
+      {
+        phoneNumber.setNationalNumber(long.Parse(nationalNumber.toString()));
       } 
     }
     catch {
