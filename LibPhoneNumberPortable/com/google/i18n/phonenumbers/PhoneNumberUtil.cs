@@ -3217,11 +3217,14 @@ public class PhoneNumberUtil {
       String numberString = getNationalSignificantNumber(phoneNumber);
       logger.log(Level.WARNING,
                  "Missing/invalid country_code (" + countryCode + ") for number " + numberString);
-      return null;
+      return UNKNOWN_REGION;
     }
 
+    if (regions.size() == 1 || nationalNumber.length() == 0) { 
+      return regions.get(0);
+    }
 
-    return regions.size() == 1 ? regions.get(0) : getRegionCodeForNumberFromRegionList(phoneNumber, regions);
+    return getRegionCodeForNumberFromRegionList(phoneNumber, regions) ?? regions.get(0);
   }
 
   public int maybeExtractCountryCode(String number)
