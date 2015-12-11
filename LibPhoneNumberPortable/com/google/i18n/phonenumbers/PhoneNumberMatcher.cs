@@ -44,8 +44,6 @@ using UnicodeBlock = java.lang.Character.UnicodeBlock;
  * not found.
  *
  * <p>This class is not thread-safe.
- *
- * @author Tom Hofmann
  */
 internal sealed class PhoneNumberMatcher : Iterator<PhoneNumberMatch> {
   /**
@@ -85,7 +83,7 @@ internal sealed class PhoneNumberMatcher : Iterator<PhoneNumberMatch> {
    * trailing ":\d\d" -- that is covered by TIME_STAMPS_SUFFIX.
    */
   private static readonly Pattern TIME_STAMPS =
-      Pattern.compile("[12]\\d{3}[-/]?[01]\\d[-/]?[0-3]\\d [0-2]\\d$");
+      Pattern.compile("[12]\\d{3}[-/]?[01]\\d[-/]?[0-3]\\d +[0-2]\\d$");
   private static readonly Pattern TIME_STAMPS_SUFFIX = Pattern.compile(":[0-5]\\d");
 
   /**
@@ -96,11 +94,33 @@ internal sealed class PhoneNumberMatcher : Iterator<PhoneNumberMatch> {
   private static readonly Pattern MATCHING_BRACKETS;
 
   /**
-   * Matches white-space, which may indicate the end of a phone number and the start of something
-   * else (such as a neighbouring zip-code). If white-space is found, continues to match all
-   * characters that are not typically used to start a phone number.
+   * Patterns used to extract phone numbers from a larger phone-number-like pattern. These are
+   * ordered according to specificity. For example, white-space is last since that is frequently
+   * used in numbers, not just to separate two numbers. We have separate patterns since we don't
+   * want to break up the phone-number-like text on more than one different kind of symbol at one
+   * time, although symbols of the same type (e.g. space) can be safely grouped together.
+   *
+   * Note that if there is a match, we will always check any text found up to the first match as
+   * well.
    */
-  private static readonly Pattern GROUP_SEPARATOR;
+  private static readonly Pattern[] INNER_MATCHES = {
+      // Breaks on the slash - e.g. "651-234-2345/332-445-1234"
+      Pattern.compile("/+(.*)"),
+      // Note that the bracket here is inside the capturing group, since we consider it part of the
+      // phone number. Will match a pattern like "(650) 223 3345 (754) 223 3321".
+      Pattern.compile("(\\([^(]*)"),
+      // Breaks on a hyphen - e.g. "12345 - 332-445-1234 is my number."
+      // We require a space on either side of the hyphen for it to be considered a separator.
+      Pattern.compile("(?:\\p{Z}-|-\\p{Z})\\p{Z}*(.+)"),
+      // Various types of wide hyphens. Note we have decided not to enforce a space here, since it's
+      // possible that it's supposed to be used to break two numbers without spaces, and we haven't
+      // seen many instances of it used within a number.
+      Pattern.compile("[\u2012-\u2015\uFF0D]\\p{Z}*(.+)"),
+      // Breaks on a full stop - e.g. "12345. 332-445-1234 is my number."
+      Pattern.compile("\\.+\\p{Z}*([^.]+)"),
+      // Breaks on space - e.g. "3324451234 8002341234"
+      Pattern.compile("\\p{Z}+(\\P{Z}+)")
+  };
 
   /**
    * Punctuation that may be at the start of a phone number - brackets and plus signs.
@@ -149,7 +169,6 @@ internal sealed class PhoneNumberMatcher : Iterator<PhoneNumberMatch> {
     String leadClassChars = openingParens + PhoneNumberUtil.PLUS_CHARS;
     String leadClass = "[" + leadClassChars + "]";
     LEAD_CLASS = Pattern.compile(leadClass);
-    GROUP_SEPARATOR = Pattern.compile("\\p{Z}" + "[^" + leadClassChars  + "\\p{Nd}]*");
 
     /* Phone number pattern allowing optional punctuation. */
     PATTERN = Pattern.compile(
@@ -298,10 +317,11 @@ internal sealed class PhoneNumberMatcher : Iterator<PhoneNumberMatch> {
    * @return  the match found, null if none can be found
    */
   private PhoneNumberMatch extractMatch(CharSequence candidate, int offset) {
-    // Skip a match that is more likely a publication page reference or a date.
-    if (PUB_PAGES.matcher(candidate).find() || SLASH_SEPARATED_DATES.matcher(candidate).find()) {
+    // Skip a match that is more likely to be a date.
+    if (SLASH_SEPARATED_DATES.matcher(candidate).find()) {
       return null;
     }
+
     // Skip potential time-stamps.
     if (TIME_STAMPS.matcher(candidate).find()) {
       String followingText = text.toString().substring(offset + candidate.length());
@@ -331,48 +351,25 @@ internal sealed class PhoneNumberMatcher : Iterator<PhoneNumberMatch> {
    * @return  the match found, null if none can be found
    */
   private PhoneNumberMatch extractInnerMatch(String candidate, int offset) {
-    // Try removing either the first or last "group" in the number and see if this gives a result.
-    // We consider white space to be a possible indication of the start or end of the phone number.
-    Matcher groupMatcher = GROUP_SEPARATOR.matcher(candidate);
-
-    if (groupMatcher.find()) {
-      // Try the first group by itself.
-      CharSequence firstGroupOnly = candidate.substring(0, groupMatcher.start());
-      firstGroupOnly = trimAfterFirstMatch(PhoneNumberUtil.UNWANTED_END_CHAR_PATTERN,
-                                           firstGroupOnly);
-      PhoneNumberMatch match = parseAndVerify(firstGroupOnly.toString(), offset);
-      if (match != null) {
-        return match;
-      }
-      maxTries--;
-
-      int withoutFirstGroupStart = groupMatcher.end();
-      // Try the rest of the candidate without the first group.
-      CharSequence withoutFirstGroup = candidate.substring(withoutFirstGroupStart);
-      withoutFirstGroup = trimAfterFirstMatch(PhoneNumberUtil.UNWANTED_END_CHAR_PATTERN,
-                                              withoutFirstGroup);
-      match = parseAndVerify(withoutFirstGroup.toString(), offset + withoutFirstGroupStart);
-      if (match != null) {
-        return match;
-      }
-      maxTries--;
-
-      if (maxTries > 0) {
-        int lastGroupStart = withoutFirstGroupStart;
-        while (groupMatcher.find()) {
-          // Find the last group.
-          lastGroupStart = groupMatcher.start();
+    for (Pattern possibleInnerMatch : INNER_MATCHES) {
+      Matcher groupMatcher = possibleInnerMatch.matcher(candidate);
+      boolean isFirstMatch = true;
+      while (groupMatcher.find() && maxTries > 0) {
+        if (isFirstMatch) {
+          // We should handle any group before this one too.
+          CharSequence group = trimAfterFirstMatch(
+              PhoneNumberUtil.UNWANTED_END_CHAR_PATTERN,
+              candidate.substring(0, groupMatcher.start()));
+          PhoneNumberMatch match = parseAndVerify(group.toString(), offset);
+          if (match != null) {
+            return match;
+          }
+          maxTries--;
+          isFirstMatch = false;
         }
-        CharSequence withoutLastGroup = candidate.substring(0, lastGroupStart);
-        withoutLastGroup = trimAfterFirstMatch(PhoneNumberUtil.UNWANTED_END_CHAR_PATTERN,
-                                               withoutLastGroup);
-        if (withoutLastGroup.equals(firstGroupOnly)) {
-          // If there are only two groups, then the group "without the last group" is the same as
-          // the first group. In these cases, we don't want to re-check the number group, so we exit
-          // already.
-          return null;
-        }
-        match = parseAndVerify(withoutLastGroup.toString(), offset);
+        CharSequence group = trimAfterFirstMatch(
+            PhoneNumberUtil.UNWANTED_END_CHAR_PATTERN, groupMatcher.group(1));
+        PhoneNumberMatch match = parseAndVerify(group.toString(), offset + groupMatcher.start(1));
         if (match != null) {
           return match;
         }
@@ -395,7 +392,7 @@ internal sealed class PhoneNumberMatcher : Iterator<PhoneNumberMatch> {
     try {
       // Check the candidate doesn't contain any formatting which would indicate that it really
       // isn't a phone number.
-      if (!MATCHING_BRACKETS.matcher(candidate).matches()) {
+      if (!MATCHING_BRACKETS.matcher(candidate).matches() || PUB_PAGES.matcher(candidate).find()) {
         return null;
       }
 
@@ -421,6 +418,26 @@ internal sealed class PhoneNumberMatcher : Iterator<PhoneNumberMatch> {
       }
 
       PhoneNumber number = phoneUtil.parseAndKeepRawInput(candidate, preferredRegion);
+
+      // Check Israel * numbers: these are a special case in that they are four-digit numbers that
+      // our library supports, but they can only be dialled with a leading *. Since we don't
+      // actually store or detect the * in our phone number library, this means in practice we
+      // detect most four digit numbers as being valid for Israel. We are considering moving these
+      // numbers to ShortNumberInfo instead, in which case this problem would go away, but in the
+      // meantime we want to restrict the false matches so we only allow these numbers if they are
+      // preceded by a star. We enforce this for all leniency levels even though these numbers are
+      // technically accepted by isPossibleNumber and isValidNumber since we consider it to be a
+      // deficiency in those methods that they accept these numbers without the *.
+      // TODO: Remove this or make it significantly less hacky once we've decided how to
+      // handle these short codes going forward in ShortNumberInfo. We could use the formatting
+      // rules for instance, but that would be slower.
+      if (phoneUtil.getRegionCodeForCountryCode(number.getCountryCode()).equals("IL") &&
+          phoneUtil.getNationalSignificantNumber(number).length() == 4 &&
+          (offset == 0 || (offset > 0 && text.charAt(offset - 1) != '*'))) {
+        // No match.
+        return null;
+      }
+
       if (leniency.verify(number, candidate, phoneUtil)) {
         // We used parseAndKeepRawInput to create this number, but for now we don't return the extra
         // values parsed. TODO: stop clearing all values here and switch all users over
@@ -469,9 +486,14 @@ internal sealed class PhoneNumberMatcher : Iterator<PhoneNumberMatch> {
                                               StringBuilder normalizedCandidate,
                                               String[] formattedNumberGroups) {
     int fromIndex = 0;
+    if (number.getCountryCodeSource() != CountryCodeSource.FROM_DEFAULT_COUNTRY) {
+      // First skip the country code if the normalized candidate contained it.
+      String countryCode = Integer.toString(number.getCountryCode());
+      fromIndex = normalizedCandidate.indexOf(countryCode) + countryCode.length();
+    }
     // Check each group of consecutive digits are not broken into separate groupings in the
     // {@code normalizedCandidate} string.
-    for (int i = 0; i < formattedNumberGroups.length(); i++) {
+    for (int i = 0; i < formattedNumberGroups.length; i++) {
       // Fails if the substring of {@code normalizedCandidate} starting from {@code fromIndex}
       // doesn't contain the consecutive digits in formattedNumberGroups[i].
       fromIndex = normalizedCandidate.indexOf(formattedNumberGroups[i], fromIndex);
@@ -511,18 +533,18 @@ internal sealed class PhoneNumberMatcher : Iterator<PhoneNumberMatch> {
         PhoneNumberUtil.NON_DIGITS_PATTERN.split(normalizedCandidate.toString());
     // Set this to the last group, skipping it if the number has an extension.
     int candidateNumberGroupIndex =
-        number.hasExtension() ? candidateGroups.length() - 2 : candidateGroups.length() - 1;
+        number.hasExtension() ? candidateGroups.length - 2 : candidateGroups.length - 1;
     // First we check if the national significant number is formatted as a block.
     // We use contains and not equals, since the national significant number may be present with
     // a prefix such as a national number prefix, or the country code itself.
-    if (candidateGroups.length() == 1 ||
+    if (candidateGroups.length == 1 ||
         candidateGroups[candidateNumberGroupIndex].contains(
             util.getNationalSignificantNumber(number))) {
       return true;
     }
     // Starting from the end, go through in reverse, excluding the first group, and check the
     // candidate and number groups are the same.
-    for (int formattedNumberGroupIndex = (formattedNumberGroups.length() - 1);
+    for (int formattedNumberGroupIndex = (formattedNumberGroups.length - 1);
          formattedNumberGroupIndex > 0 && candidateNumberGroupIndex >= 0;
          formattedNumberGroupIndex--, candidateNumberGroupIndex--) {
       if (!candidateGroups[candidateNumberGroupIndex].equals(
@@ -576,7 +598,7 @@ internal sealed class PhoneNumberMatcher : Iterator<PhoneNumberMatch> {
     PhoneMetadata alternateFormats =
         MetadataManager.getAlternateFormatsForCountry(number.getCountryCode());
     if (alternateFormats != null) {
-      foreach (NumberFormat alternateFormat in alternateFormats.numberFormats()) {
+      foreach (NumberFormat alternateFormat in alternateFormats.numberFormat) {
         formattedNumberGroups = getNationalNumberGroups(util, number, alternateFormat);
         if (checker.checkGroups(util, number, normalizedCandidate, formattedNumberGroups)) {
           return true;
@@ -656,17 +678,17 @@ internal sealed class PhoneNumberMatcher : Iterator<PhoneNumberMatch> {
     // Check if a national prefix should be present when formatting this number.
     String nationalNumber = util.getNationalSignificantNumber(number);
     NumberFormat formatRule =
-        util.chooseFormattingPatternForNumber(metadata.numberFormats(), nationalNumber);
+        util.chooseFormattingPatternForNumber(metadata.numberFormat, nationalNumber);
     // To do this, we check that a national prefix formatting rule was present and that it wasn't
     // just the first-group symbol ($1) with punctuation.
-    if ((formatRule != null) && formatRule.getNationalPrefixFormattingRule().length() > 0) {
-      if (formatRule.isNationalPrefixOptionalWhenFormatting()) {
+    if ((formatRule != null) && formatRule.nationalPrefixFormattingRule.length() > 0) {
+      if (formatRule.nationalPrefixOptionalWhenFormatting) {
         // The national-prefix is optional in these cases, so we don't need to check if it was
         // present.
         return true;
       }
       if (PhoneNumberUtil.formattingRuleHasFirstGroupOnly(
-          formatRule.getNationalPrefixFormattingRule())) {
+          formatRule.nationalPrefixFormattingRule)) {
         // National Prefix not needed for this number.
         return true;
       }

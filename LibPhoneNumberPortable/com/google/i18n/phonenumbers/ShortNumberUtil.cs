@@ -34,6 +34,7 @@ using String = java.lang.String;
  * @author Shaopeng Jia
  * @author David Yonge-Mallo
  */
+[Obsolete]
 public class ShortNumberUtil {
 
   /**

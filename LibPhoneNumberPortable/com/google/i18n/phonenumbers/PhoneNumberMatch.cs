@@ -35,7 +35,7 @@ using String = java.lang.String;
 
  * <pre>
  * CharSequence text = "Call me at +1 425 882-8080 for details.";
- * RegionCode country = RegionCode.US;
+ * String country = "US";
  * PhoneNumberUtil util = PhoneNumberUtil.getInstance();
  *
  * // Find the first phone number match:
@@ -52,16 +52,14 @@ using String = java.lang.String;
  * // invoked on rawString().
  * util.parse(m.rawString(), country).equals(m.number());
  * </pre>
- *
- * @author Tom Hofmann
  */
 public sealed class PhoneNumberMatch {
   /** The start index into the text. */
-  private readonly int _start;
+  private readonly int start;
   /** The raw substring matched. */
-  private readonly String _rawString;
+  private readonly String rawString;
   /** The matched phone number. */
-  private readonly PhoneNumber _number;
+  private readonly PhoneNumber number;
 
   /**
    * Creates a new match.
@@ -77,33 +75,33 @@ public sealed class PhoneNumberMatch {
     if (rawString == null || number == null) {
       throw new NullPointerException();
     }
-    this._start = start;
-    this._rawString = rawString;
-    this._number = number;
+    this.start = start;
+    this.rawString = rawString;
+    this.number = number;
   }
 
   /** Returns the phone number matched by the receiver. */
   public PhoneNumber number() {
-    return _number;
+    return number;
   }
 
   /** Returns the start index of the matched phone number within the searched text. */
   public int start() {
-    return _start;
+    return start;
   }
 
   /** Returns the exclusive end index of the matched phone number within the searched text. */
   public int end() {
-    return _start + _rawString.length();
+    return start + rawString.length();
   }
 
   /** Returns the raw string matched as a phone number in the searched text. */
   public String rawString() {
-    return _rawString;
+    return rawString;
   }
 
   public int hashCode() {
-    return Arrays.hashCode(new Object[]{_start, _rawString, _number});
+    return Arrays.hashCode(new Object[]{start, rawString, number});
   }
 
   public boolean equals(Object obj) {
@@ -114,12 +112,12 @@ public sealed class PhoneNumberMatch {
       return false;
     }
     PhoneNumberMatch other = (PhoneNumberMatch) obj;
-    return _rawString.equals(other._rawString) && (_start == other._start) &&
-        _number.equals(other._number);
+    return rawString.equals(other.rawString) && (start == other.start) &&
+        number.equals(other.number);
   }
 
   public String toString() {
-    return "PhoneNumberMatch [" + start() + "," + end() + ") " + _rawString;
+    return "PhoneNumberMatch [" + start() + "," + end() + ") " + rawString;
   }
 
   //////////////////////////////////////////////////////////////////////////

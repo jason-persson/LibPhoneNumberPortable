@@ -20,7 +20,6 @@ using System;
 
 /**
  * Generic exception class for errors encountered when parsing phone numbers.
- * @author Lara Rennie
  */
 
 public class NumberParseException : libphonenumber.NumberParseException {

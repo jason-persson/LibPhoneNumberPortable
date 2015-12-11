@@ -43,125 +43,141 @@ public sealed class Phonenumber {
     }
 
     // required int32 country_code = 1;
-    private boolean _hasCountryCode;
+    private boolean hasCountryCode;
     private int countryCode_ = 0;
-    public boolean hasCountryCode() { return _hasCountryCode; }
+    public boolean hasCountryCode() { return hasCountryCode; }
     public int getCountryCode() { return countryCode_; }
     public PhoneNumber setCountryCode(int value) {
-      _hasCountryCode = true;
+      hasCountryCode = true;
       countryCode_ = value;
       return this;
     }
     public PhoneNumber clearCountryCode() {
-      _hasCountryCode = false;
+      hasCountryCode = false;
       countryCode_ = 0;
       return this;
     }
 
     // required uint64 national_number = 2;
-    private boolean _hasNationalNumber;
+    private boolean hasNationalNumber;
     private long nationalNumber_ = 0L;
-    public boolean hasNationalNumber() { return _hasNationalNumber; }
+    public boolean hasNationalNumber() { return hasNationalNumber; }
     public long getNationalNumber() { return nationalNumber_; }
     public PhoneNumber setNationalNumber(long value) {
-      _hasNationalNumber = true;
+      hasNationalNumber = true;
       nationalNumber_ = value;
       return this;
     }
     public PhoneNumber clearNationalNumber() {
-      _hasNationalNumber = false;
+      hasNationalNumber = false;
       nationalNumber_ = 0L;
       return this;
     }
 
     // optional string extension = 3;
-    private boolean _hasExtension;
+    private boolean hasExtension;
     private java.lang.String extension_ = "";
-    public boolean hasExtension() { return _hasExtension; }
+    public boolean hasExtension() { return hasExtension; }
     public String getExtension() { return extension_; }
     public PhoneNumber setExtension(String value) {
       if (value == null) {
         throw new NullPointerException();
       }
-      _hasExtension = true;
+      hasExtension = true;
       extension_ = value;
       return this;
     }
     public PhoneNumber clearExtension() {
-      _hasExtension = false;
+      hasExtension = false;
       extension_ = "";
       return this;
     }
 
     // optional bool italian_leading_zero = 4;
-    private boolean _hasItalianLeadingZero;
+    private boolean hasItalianLeadingZero;
     private boolean italianLeadingZero_ = false;
-    public boolean hasItalianLeadingZero() { return _hasItalianLeadingZero; }
+    public boolean hasItalianLeadingZero() { return hasItalianLeadingZero; }
     public boolean isItalianLeadingZero() { return italianLeadingZero_; }
     public PhoneNumber setItalianLeadingZero(boolean value) {
-      _hasItalianLeadingZero = true;
+      hasItalianLeadingZero = true;
       italianLeadingZero_ = value;
       return this;
     }
     public PhoneNumber clearItalianLeadingZero() {
-      _hasItalianLeadingZero = false;
+      hasItalianLeadingZero = false;
       italianLeadingZero_ = false;
       return this;
     }
 
+    // optional int32 number_of_leading_zeros = 8 [default = 1];
+    private boolean hasNumberOfLeadingZeros;
+    private int numberOfLeadingZeros_ = 1;
+    public boolean hasNumberOfLeadingZeros() { return hasNumberOfLeadingZeros; }
+    public int getNumberOfLeadingZeros() { return numberOfLeadingZeros_; }
+    public PhoneNumber setNumberOfLeadingZeros(int value) {
+      hasNumberOfLeadingZeros = true;
+      numberOfLeadingZeros_ = value;
+      return this;
+    }
+    public PhoneNumber clearNumberOfLeadingZeros() {
+      hasNumberOfLeadingZeros = false;
+      numberOfLeadingZeros_ = 1;
+      return this;
+    }
+
     // optional string raw_input = 5;
-    private boolean _hasRawInput;
+    private boolean hasRawInput;
     private String rawInput_ = "";
-    public boolean hasRawInput() { return _hasRawInput; }
+    public boolean hasRawInput() { return hasRawInput; }
     public String getRawInput() { return rawInput_; }
     public PhoneNumber setRawInput(String value) {
       if (value == null) {
         throw new NullPointerException();
       }
-      _hasRawInput = true;
+      hasRawInput = true;
       rawInput_ = value;
       return this;
     }
     public PhoneNumber clearRawInput() {
-      _hasRawInput = false;
+      hasRawInput = false;
       rawInput_ = "";
       return this;
     }
 
     // optional CountryCodeSource country_code_source = 6;
-    private boolean _hasCountryCodeSource;
+    private boolean hasCountryCodeSource;
     private CountryCodeSource countryCodeSource_;
-    public boolean hasCountryCodeSource() { return _hasCountryCodeSource; }
+    public boolean hasCountryCodeSource() { return hasCountryCodeSource; }
     public CountryCodeSource getCountryCodeSource() { return countryCodeSource_; }
     public PhoneNumber setCountryCodeSource(CountryCodeSource value) {
       //if (value == null) {
       //  throw new NullPointerException();
       //}
-      _hasCountryCodeSource = true;
+      hasCountryCodeSource = true;
       countryCodeSource_ = value;
       return this;
     }
     public PhoneNumber clearCountryCodeSource() {
-      _hasCountryCodeSource = false;
+      hasCountryCodeSource = false;
       countryCodeSource_ = CountryCodeSource.FROM_NUMBER_WITH_PLUS_SIGN;
       return this;
     }
 
     // optional string preferred_domestic_carrier_code = 7;
-    private boolean _hasPreferredDomesticCarrierCode;
+    private boolean hasPreferredDomesticCarrierCode;
     private String preferredDomesticCarrierCode_ = "";
-    public boolean hasPreferredDomesticCarrierCode() { return _hasPreferredDomesticCarrierCode; }
+    public boolean hasPreferredDomesticCarrierCode() { return hasPreferredDomesticCarrierCode; }
     public String getPreferredDomesticCarrierCode() { return preferredDomesticCarrierCode_; }
     public PhoneNumber setPreferredDomesticCarrierCode(String value) {
       if (value == null) {
         throw new NullPointerException();
       }
-      _hasPreferredDomesticCarrierCode = true;
+      hasPreferredDomesticCarrierCode = true;
       preferredDomesticCarrierCode_ = value;
       return this;
     }
     public PhoneNumber clearPreferredDomesticCarrierCode() {
-      _hasPreferredDomesticCarrierCode = false;
+      hasPreferredDomesticCarrierCode = false;
       preferredDomesticCarrierCode_ = "";
       return this;
     }
@@ -171,6 +187,7 @@ public sealed class Phonenumber {
       clearNationalNumber();
       clearExtension();
       clearItalianLeadingZero();
+      clearNumberOfLeadingZeros();
       clearRawInput();
       clearCountryCodeSource();
       clearPreferredDomesticCarrierCode();
@@ -189,6 +206,9 @@ public sealed class Phonenumber {
       }
       if (other.hasItalianLeadingZero()) {
         setItalianLeadingZero(other.isItalianLeadingZero());
+      }
+      if (other.hasNumberOfLeadingZeros()) {
+        setNumberOfLeadingZeros(other.getNumberOfLeadingZeros());
       }
       if (other.hasRawInput()) {
         setRawInput(other.getRawInput());
@@ -211,6 +231,7 @@ public sealed class Phonenumber {
       }
       return (countryCode_ == other.countryCode_ && nationalNumber_ == other.nationalNumber_ &&
           extension_.equals(other.extension_) && italianLeadingZero_ == other.italianLeadingZero_ &&
+          numberOfLeadingZeros_ == other.numberOfLeadingZeros_ &&
           rawInput_.equals(other.rawInput_) && countryCodeSource_ == other.countryCodeSource_ &&
           preferredDomesticCarrierCode_.equals(other.preferredDomesticCarrierCode_) &&
           hasPreferredDomesticCarrierCode() == other.hasPreferredDomesticCarrierCode());
@@ -230,6 +251,7 @@ public sealed class Phonenumber {
       hash = (53 * hash) + Long.valueOf(getNationalNumber()).hashCode();
       hash = (53 * hash) + getExtension().hashCode();
       hash = (53 * hash) + (isItalianLeadingZero() ? 1231 : 1237);
+      hash = (53 * hash) + getNumberOfLeadingZeros();
       hash = (53 * hash) + getRawInput().hashCode();
       hash = (53 * hash) + getCountryCodeSource().hashCode();
       hash = (53 * hash) + getPreferredDomesticCarrierCode().hashCode();
@@ -242,7 +264,10 @@ public sealed class Phonenumber {
       outputString.append("Country Code: ").append(countryCode_);
       outputString.append(" National Number: ").append(nationalNumber_);
       if (hasItalianLeadingZero() && isItalianLeadingZero()) {
-        outputString.append(" Leading Zero: true");
+        outputString.append(" Leading Zero(s): true");
+      }
+      if (hasNumberOfLeadingZeros()) {
+        outputString.append(" Number of leading zeros: ").append(numberOfLeadingZeros_);
       }
       if (hasExtension()) {
         outputString.append(" Extension: ").append(extension_);

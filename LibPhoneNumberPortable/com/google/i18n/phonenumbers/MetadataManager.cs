@@ -16,8 +16,9 @@
 
 namespace com.google.i18n.phonenumbers {
 
-using PhoneMetadata = com.google.i18n.phonenumbers.Phonemetadata.PhoneMetadata;
-using PhoneMetadataCollection = com.google.i18n.phonenumbers.Phonemetadata.PhoneMetadataCollection;
+using PhoneMetadata = com.google.i18n.phonenumbers.nano.Phonemetadata.PhoneMetadata;
+using PhoneMetadataCollection = com.google.i18n.phonenumbers.nano.Phonemetadata.PhoneMetadataCollection;
+using CodedInputByteBufferNano =  com.google.protobuf.nano.CodedInputByteBufferNano;
 
 using java.io;
 using java.lang;
@@ -31,8 +32,6 @@ using String = java.lang.String;
  * Class encapsulating loading of PhoneNumber Metadata information. Currently this is used only for
  * additional data files such as PhoneNumberAlternateFormats, but in the future it is envisaged it
  * would handle the main metadata file (PhoneNumberMetadata.xml) as well.
- *
- * @author Lara Rennie
  */
 class MetadataManager {
   private static readonly  String ALTERNATE_FORMATS_FILE_PREFIX =
@@ -69,16 +68,35 @@ class MetadataManager {
     }
   }
 
+  // The size of the byte buffer used for deserializing the alternate formats and short number
+  // metadata files for each region.
+  private const int BUFFER_SIZE = 16 * 1024;
+
+  static CodedInputByteBufferNano convertStreamToByteBuffer(ObjectInputStream @in, int bufferSize)
+  {
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    int nRead;
+    byte[] data = new byte[bufferSize];
+
+    while ((nRead = @in.read(data, 0, bufferSize)) != -1) {
+      outputStream.write(data, 0, nRead);
+    }
+
+    outputStream.flush();
+    return CodedInputByteBufferNano.newInstance(outputStream.toByteArray());
+  }
+
   private static void loadAlternateFormatsMetadataFromFile(int countryCallingCode) {
     InputStream source = Extensions.getResourceAsStream(
         ALTERNATE_FORMATS_FILE_PREFIX + "_" + countryCallingCode);
     ObjectInputStream @in = null;
     try {
       @in = new ObjectInputStream(source);
+      CodedInputByteBufferNano byteBuffer = convertStreamToByteBuffer(@in, BUFFER_SIZE);
       PhoneMetadataCollection alternateFormats = new PhoneMetadataCollection();
-      alternateFormats.readExternal(@in);
+      alternateFormats.mergeFrom(byteBuffer);
       foreach (PhoneMetadata metadata in alternateFormats.getMetadataList()) {
-        callingCodeToAlternateFormatsMap.put(metadata.getCountryCode(), metadata);
+        callingCodeToAlternateFormatsMap.put(metadata.countryCode, metadata);
       }
     } catch (IOException e) {
       LOGGER.log(Level.WARNING, e.toString());
@@ -105,9 +123,10 @@ class MetadataManager {
     ObjectInputStream @in = null;
     try {
       @in = new ObjectInputStream(source);
+      CodedInputByteBufferNano byteBuffer = convertStreamToByteBuffer(@in, BUFFER_SIZE);
       PhoneMetadataCollection shortNumberMetadata = new PhoneMetadataCollection();
-      shortNumberMetadata.readExternal(@in);
-      foreach (PhoneMetadata metadata in shortNumberMetadata.getMetadataList()) {
+      shortNumberMetadata.mergeFrom(byteBuffer);
+      foreach (PhoneMetadata metadata in shortNumberMetadata.metadata) {
         regionCodeToShortNumberMetadataMap.put(regionCode, metadata);
       }
     } catch (IOException e) {
